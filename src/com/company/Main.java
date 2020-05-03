@@ -3,11 +3,12 @@ package com.company;
 import java.sql.*;
 
 public class Main {
+    static Connection cn;
     public static void main(String[] args) {
         try{
             //establish connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection cn=DriverManager.getConnection(
+            cn=DriverManager.getConnection(
                     "jdbc:mysql://192.168.1.34/cs353?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Moscow",
                     "root","Ozge123");
 
@@ -188,7 +189,7 @@ public class Main {
             String footballer_report = "CREATE TABLE footballer_report (" +
                     "report_id INT NOT NULL," +
                     "footballer_id INT NOT NULL," +
-                    "PRIMARY KEY (report_id, footballer_id)," +
+                    "PRIMARY KEY (report_id)," +
                     "FOREIGN KEY (report_id) REFERENCES report (id)," +
                     "FOREIGN KEY (footballer_id) REFERENCES footballer (id)" +
                     ");";
@@ -198,7 +199,7 @@ public class Main {
                     "club_id INT NOT NULL," +
                     "salary VARCHAR(15) NULL," +
                     "contract_end VARCHAR(15) NULL," +
-                    "PRIMARY KEY (footballer_id, club_id)," +
+                    "PRIMARY KEY (footballer_id)," +
                     "FOREIGN KEY (footballer_id) REFERENCES footballer (id)," +
                     "FOREIGN KEY (club_id) REFERENCES club (id)" +
                     ");";
@@ -226,7 +227,7 @@ public class Main {
                     "club_id int NOT NULL," +
                     "agency_id int NOT NULL," +
                     "status varchar(10) NOT NULL DEFAULT 'pending'," +
-                    "PRIMARY KEY (request_id, club_id, agency_id)," +
+                    "PRIMARY KEY (request_id)," +
                     "FOREIGN KEY (request_id) REFERENCES request (id)," +
                     "FOREIGN KEY (club_id) REFERENCES club (id)," +
                     "FOREIGN KEY (agency_id) REFERENCES agency (id)" +
