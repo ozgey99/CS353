@@ -34,8 +34,4 @@
         </div>
     </div>
 
-    <footer class="card-footer">
-        This website is developed as a CS353 project by Fatih Çakır, Rabia Nur Önal, Özge Yaşayan, Celal Bayraktar.
-    </footer>
-
 </html>
