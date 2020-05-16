@@ -1,9 +1,9 @@
 <?php
 session_start();
-$host = "192.168.1.34:3306";
-$username = "root";
-$pw = "Ozge123";
-$db = "cs353";
+$host = "eu-cdbr-west-03.cleardb.net";
+$username = "b81143f8d33a56";
+$pw = "6b5fc2c7";
+$db = "heroku_31ef56b49cb5553";
 
 $cn = mysqli_connect($host, $username, $pw, $db);
 
