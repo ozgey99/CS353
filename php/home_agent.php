@@ -9,12 +9,12 @@
     <h2>Welcome to Agent Home Page</h2>
 
     <?php 
-    	if (isset($_SESSION['userId'])) {
+    	if (isset($_SESSION['id'])) {
     		echo "<p class='login-status'>You are logged in as Agent!</p>";
     	}
 
     ?>
-    <form action="includes/logout_inc.php">
+    <form action="logout_inc.php">
 
     	<button type="submit" name="logout-submit">Logout</button>
 
