@@ -51,6 +51,7 @@
                 array_push($errors,"ERROR: journalist signup");
             }
         }
+        header("Location: /database/login.php");
     }
 
     if(isset($_POST['signup_agency'])) {
@@ -99,6 +100,7 @@
                 array_push($errors,"ERROR: agency signup");
             }
         }
+        header("Location: /database/login.php");
     }
 
     if(isset($_POST['signup_agent'])) {
@@ -146,6 +148,7 @@
                 array_push($errors,"ERROR: agent signup");
             }
         }
+        header("Location: /database/login.php");
     }
 
 
@@ -192,6 +195,7 @@
                 array_push($errors,"ERROR: scout signup");
             }
         }
+        header("Location: /database/login.php");
     }
 
     if(isset($_POST['signup_footballer'])) {
@@ -258,7 +262,6 @@
                     $new_value = $row['value'] + $value;
                     $query8 = "UPDATE club SET value = '$new_value' WHERE id = '$club_id'";
                     mysqli_query($db, $query8);
-
                 } else {
                     array_push($errors, "ERROR: team id - footballer signup");
                 }
@@ -267,6 +270,7 @@
                     array_push($errors, "ERROR: footballer signup");
             }
         }
+        
     }
 
     if(isset($_POST['signup_club'])) {
@@ -335,6 +339,7 @@
                 array_push($errors,"ERROR: agent signup");
             }
         }
+        header("Location: /database/login.php");
     }
-
+    
 ?>
