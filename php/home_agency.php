@@ -9,7 +9,7 @@
     <h2>Welcome to Agency Home Page</h2>
 
     <?php 
-    	if (isset($_SESSION['id'])) {
+    	if (isset($_SESSION['userId'])) {
     		echo "<p class='login-status'>You are logged in as Agency!</p>";
     	}
     ?>
