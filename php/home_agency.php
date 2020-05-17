@@ -9,8 +9,8 @@
     <h2>Welcome to Agency Home Page</h2>
 
     <?php 
-    	if (isset($_SESSION['userId'])) {
-    		echo "<p class='login-status'>You are logged in as Agency!</p>";
+    	if (isset($_SESSION['id'])) {
+    		echo "<p class='login-status'>You are logged in as Agency! $_SESSION['id']</p>";
     	}
     ?>
     <form action="logout_inc.php">
