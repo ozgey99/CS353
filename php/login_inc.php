@@ -4,7 +4,7 @@ include 'config.php';
 $conn = $cn;
 if(isset($_POST['login-submit'])){
 	
-	$username = mysqli_real_escape_string($conn, $_POST['mailuid']);
+	$uid = mysqli_real_escape_string($conn, $_POST['mailuid']);
 	$password = mysqli_real_escape_string($conn, $_POST['pwd']);
 
 	if (empty($uid) || empty($password)){
