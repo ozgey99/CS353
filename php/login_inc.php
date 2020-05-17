@@ -30,9 +30,9 @@ if(isset($_POST['login-submit'])){
 		 }
 
 		 else{
-
-		 	
-		 	if (password_verify($password, $row['password']) != 1){
+			
+		 	$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+		 	if ($hashedPwd != $row['password']){
 
 				header("Location: login.php?error=wrongpassword&hashpassword=".$row['password']);
 				exit();
