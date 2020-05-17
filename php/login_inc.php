@@ -32,7 +32,7 @@ if(isset($_POST['login-submit'])){
 		 else{
 
 		 	
-		 	if (password_verify($password, $row['pwdUsers']) != 1){
+		 	if (password_verify($password, $row['password']) != 1){
 
 				header("Location: login.php?error=wrongpassword");
 				exit();
