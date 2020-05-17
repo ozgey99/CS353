@@ -65,6 +65,7 @@ if(isset($_POST['login-submit'])){
 					exit();
 		 		}
 		 		else if ($resultCheck2 > 0) {
+					session_start();
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
@@ -72,6 +73,7 @@ if(isset($_POST['login-submit'])){
 					exit();
 		 		}
 		 		else if ($resultCheck3 > 0) {
+					session_start();
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
@@ -79,6 +81,7 @@ if(isset($_POST['login-submit'])){
 					exit();
 		 		}
 		 		else if ($resultCheck4 > 0) {
+					session_start();
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
@@ -86,6 +89,7 @@ if(isset($_POST['login-submit'])){
 					exit();
 		 		}
 		 		else if ($resultCheck5 > 0) {
+					session_start();
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
