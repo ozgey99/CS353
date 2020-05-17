@@ -51,7 +51,7 @@
                 array_push($errors,"ERROR: journalist signup");
             }
         }
-        header("Location: /database/login.php");
+        header("Location: login.php");
     }
 
     if(isset($_POST['signup_agency'])) {
@@ -100,7 +100,7 @@
                 array_push($errors,"ERROR: agency signup");
             }
         }
-        header("Location: /database/login.php");
+        header("Location: login.php");
     }
 
     if(isset($_POST['signup_agent'])) {
@@ -148,7 +148,7 @@
                 array_push($errors,"ERROR: agent signup");
             }
         }
-        header("Location: /database/login.php");
+        header("Location: login.php");
     }
 
 
@@ -195,7 +195,7 @@
                 array_push($errors,"ERROR: scout signup");
             }
         }
-        header("Location: /database/login.php");
+        header("Location: login.php");
     }
 
     if(isset($_POST['signup_footballer'])) {
@@ -339,7 +339,7 @@
                 array_push($errors,"ERROR: agent signup");
             }
         }
-        header("Location: /database/login.php");
+        header("Location: login.php");
     }
     
 ?>
