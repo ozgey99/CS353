@@ -34,7 +34,7 @@ if(isset($_POST['login-submit'])){
 		 	$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 		 	if ($hashedPwd != $row['password']){
 
-				header("Location: login.php?error=wrongpassword&hashpassword=".$row['password']);
+				header("Location: login.php?error=wrongpassword&hashpassword=".$hashedPwd);
 				exit();
 
 		 	}
