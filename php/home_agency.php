@@ -10,7 +10,7 @@
 
     <?php 
     	if (isset($_SESSION['id'])) {
-    		echo "<p class='login-status'>You are logged in as Agency! $_SESSION['id']</p>";
+    		echo "<p class='login-status'>You are logged in as Agency!</p>";
     	}
     ?>
     <form action="logout_inc.php">
