@@ -34,7 +34,7 @@ if(isset($_POST['login-submit'])){
 		 	
 		 	if (password_verify($password, $row['password']) != 1){
 
-				header("Location: login.php?error=wrongpassword&pwdCheck=".$pwdCheck);
+				header("Location: login.php?error=wrongpassword&hashpassword=".$row['password']);
 				exit();
 
 		 	}
