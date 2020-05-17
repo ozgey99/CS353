@@ -20,7 +20,8 @@ if(isset($_POST['login-submit'])){
 		$result = mysqli_query($conn, $sql_select);
 		$row = mysqli_fetch_assoc($result);
 		$resultCheck = mysqli_num_rows($result);
-		$pwdCheck = password_verify($password, $row['password']);
+		$hashedPwd = $row['password'];
+		$pwdCheck = password_verify($password, $hashedPwd);
 
 		if ($resultCheck == 0) {
 
@@ -30,11 +31,9 @@ if(isset($_POST['login-submit'])){
 		 }
 
 		 else{
-			
-		 	$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-		 	if ($hashedPwd != $row['password']){
+		 	if ($pwdCheck!=1){
 
-				header("Location: login.php?error=wrongpassword&hashpassword=".$hashedPwd);
+				header("Location: login.php?error=wrongpassword&hashpassword=".$pwdCheck);
 				exit();
 
 		 	}
