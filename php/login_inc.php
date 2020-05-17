@@ -20,8 +20,6 @@ if(isset($_POST['login-submit'])){
 		$result = mysqli_query($conn, $sql_select);
 		$row = mysqli_fetch_assoc($result);
 		$resultCheck = mysqli_num_rows($result);
-		$hashedPwd = $row['password'];
-		$pwdCheck = password_verify($password, $hashedPwd);
 
 		if ($resultCheck == 0) {
 
@@ -31,9 +29,9 @@ if(isset($_POST['login-submit'])){
 		 }
 
 		 else{
-		 	if ($pwdCheck!=1){
+		 	if (password_verify($password, $row['password'])!=1){
 
-				header("Location: login.php?error=wrongpassword&hashpassword=".$pwdCheck);
+				header("Location: login.php?error=wrongpassword");
 				exit();
 
 		 	}
@@ -60,36 +58,36 @@ if(isset($_POST['login-submit'])){
 
 		 		if ($resultCheck1 > 0) {
 		 			session_start();
-			 		$_SESSION['userId'] = $row['id'];
-			 		$_SESSION['userUid'] = $row['username'];
+			 		$_SESSION['id'] = $row['id'];
+			 		$_SESSION['username'] = $row['username'];
 
 			 		header("Location: home_agency.php");
 					exit();
 		 		}
 		 		else if ($resultCheck2 > 0) {
-		 			$_SESSION['userId'] = $row['id'];
-			 		$_SESSION['userUid'] = $row['username'];
+		 			$_SESSION['id'] = $row['id'];
+			 		$_SESSION['username'] = $row['username'];
 
 			 		header("Location: home_agent.php");
 					exit();
 		 		}
 		 		else if ($resultCheck3 > 0) {
-		 			$_SESSION['userId'] = $row['id'];
-			 		$_SESSION['userUid'] = $row['username'];
+		 			$_SESSION['id'] = $row['id'];
+			 		$_SESSION['username'] = $row['username'];
 
 			 		header("Location: home_club.php");
 					exit();
 		 		}
 		 		else if ($resultCheck4 > 0) {
-		 			$_SESSION['userId'] = $row['id'];
-			 		$_SESSION['userUid'] = $row['username'];
+		 			$_SESSION['id'] = $row['id'];
+			 		$_SESSION['username'] = $row['username'];
 
 			 		header("Location: home_journalist.php");
 					exit();
 		 		}
 		 		else if ($resultCheck5 > 0) {
-		 			$_SESSION['userId'] = $row['id'];
-			 		$_SESSION['userUid'] = $row['username'];
+		 			$_SESSION['id'] = $row['id'];
+			 		$_SESSION['username'] = $row['username'];
 
 			 		header("Location: home_scout.php");
 					exit();
