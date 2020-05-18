@@ -13,7 +13,7 @@
 include 'config.php';
 
 $uid = $_SESSION['id'];
-$sql_select = "SELECT club.name, request_positions.position, request.start_date, request.end_date
+$sql_select = "SELECT club.name, request.no_of_req_scouts, request_positions.position, request.start_date, request.end_date
                FROM request, requests, request_positions, club
                WHERE requests.agency_id = '$uid' 
                and request.id = requests.request_id
@@ -23,10 +23,10 @@ $sql_select = "SELECT club.name, request_positions.position, request.start_date,
 $result = mysqli_query($cn, $sql_select);
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Club</th><th>Position</th><th>Start Date</th><th>End Date</th></tr>";
+    echo "<table><tr><th>Club</th><th>Number of requested scouts</th><th>Position</th><th>Start Date</th><th>End Date</th></tr>";
 
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["club.name"]."</td><td>".$row["request_positions.position"]."</td><td>
+        echo "<tr><td>".$row["club.name"]."</td><td>".$row["request.no_of_req_scouts"]."</td><td>".$row["request_positions.position"]."</td><td>
              ".$row["request.start_date"]."</td><td>".$row["request.end_date"]."</td></tr>";
     }
 
