@@ -154,13 +154,18 @@
 
     if(isset($_POST['signup_scout'])) {
         $username = mysqli_real_escape_string($db, $_POST['username']);
+        $name = mysqli_real_escape_string($db, $_POST['name']);
         $activation_key = "";
         $activation_key = mysqli_real_escape_string($db, $_POST['activation_key']);
         $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
         $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-
+        $pos=$_POST['pos'];
+        $lig= $_POST['lig'];
         if(empty($username)) {
             array_push($errors,"Username cannot be empty!");
+        }
+        if(empty($name)) {
+            array_push($errors,"Name cannot be empty!");
         }
         if(empty($activation_key)) {
             array_push($errors,"Name cannot be empty!");
@@ -178,18 +183,50 @@
             array_push($errors,"This username has taken before, please select another one!");
         }
 
+        $activationCheck = "SELECT id FROM agency WHERE activation_key='$activation_key'";
+        $result = mysqli_query($db,$activationCheck);
+        $activation= mysqli_num_rows($result);
+        if($activation == 0) {
+            array_push($errors,"Activation key is not valid!");
+        }
+        else {
+            $row = mysqli_fetch_array($result);
+            $agency_id= $row['id'];
+        }
+
         if(count($errors) == 0) {
             $password = password_hash($password_1,PASSWORD_DEFAULT);
             $sql = "INSERT INTO user(username,password)
                             VALUES ('$username','$password')";
             mysqli_query($db,$sql);
 
-            $query = "SELECT id FROM user WHERE id=(SELECT MAX(id) FROM user)";
-            $id = mysqli_query($db,$query);
+            $query = "SELECT MAX(id) as id FROM user";
+            $result = mysqli_query($db,$query);
             if(mysqli_num_rows($result) == 1) {
-                $query2 = "INSERT INTO agent(id,name)
-                                     VALUES ('$id','$name')";
+                $row = mysqli_fetch_array($result);
+                $id = $row['id'];
+                $query2 = "INSERT INTO scout(id,name,availability)
+                                     VALUES ('$id','$name',0)";
                 mysqli_query($db,$query2);
+
+                foreach($pos as $position) {
+                    mysqli_query($db,"INSERT INTO scout_position_exp(id,position) VALUES('$id','$position')");
+                }
+                foreach($lig as $league) {
+                    mysqli_query($db,"INSERT INTO scout_league_exp(id,league) VALUES('$id','$league')");
+                }
+
+                $query3= "INSERT INTO works(scout_id,agency_id)
+                                    VALUES('$id','$agency_id')";
+                mysqli_query($db,$query3);
+
+                $result = mysqli_query($db,"SELECT no_of_scouts FROM agency WHERE id='$agency_id'");
+                $row = mysqli_fetch_array($result);
+                $no_of_scouts = $row['no_of_scouts']+1;
+
+                $query4= "UPDATE agency SET no_of_scouts = '$no_of_scouts' WHERE id = '$agency_id'";
+                mysqli_query($db,$query4);
+
             }
             else {
                 array_push($errors,"ERROR: scout signup");
