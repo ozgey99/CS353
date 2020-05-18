@@ -20,6 +20,24 @@ if(isset($_POST['login-submit'])){
 		$result = mysqli_query($conn, $sql_select);
 		$row = mysqli_fetch_assoc($result);
 		$resultCheck = mysqli_num_rows($result);
+		
+		$userId = $row['id']; 
+
+		$sql_select1 = "SELECT id FROM agency WHERE id = '$userId';";
+		$result1 = mysqli_query($conn, $sql_select1);
+		$resultCheck1 = mysqli_num_rows($result1);
+		$sql_select2 = "SELECT id FROM agent WHERE id = '$userId';";
+		$result2 = mysqli_query($conn, $sql_select2);
+		$resultCheck2 = mysqli_num_rows($result2);
+		$sql_select3 = "SELECT id FROM club WHERE id = '$userId';";
+		$result3 = mysqli_query($conn, $sql_select3);
+		$resultCheck3 = mysqli_num_rows($result3);
+		$sql_select4 = "SELECT id FROM journalist WHERE id = '$userId';";
+		$result4 = mysqli_query($conn, $sql_select4);
+		$resultCheck4 = mysqli_num_rows($result4);
+		$sql_select5 = "SELECT id FROM scout WHERE id = '$userId';";
+		$result5 = mysqli_query($conn, $sql_select5);
+		$resultCheck5 = mysqli_num_rows($result5);
 
 		if ($resultCheck == 0) {
 
@@ -29,34 +47,10 @@ if(isset($_POST['login-submit'])){
 		 }
 
 		 else{
-		 	if (password_verify($password, $row['password'])!=1){
-
-				header("Location: login.php?error=wrongpassword");
-				exit();
-
-		 	}
-
-		 	else {
-
-		 		$userId = $row['id']; 
-
-				$sql_select1 = "SELECT id FROM agency WHERE id = '$userId';";
-		 		$result1 = mysqli_query($conn, $sql_select1);
-		 		$resultCheck1 = mysqli_num_rows($result1);
-		 		$sql_select2 = "SELECT id FROM agent WHERE id = '$userId';";
-		 		$result2 = mysqli_query($conn, $sql_select2);
-		 		$resultCheck2 = mysqli_num_rows($result2);
-		 		$sql_select3 = "SELECT id FROM club WHERE id = '$userId';";
-		 		$result3 = mysqli_query($conn, $sql_select3);
-		 		$resultCheck3 = mysqli_num_rows($result3);
-		 		$sql_select4 = "SELECT id FROM journalist WHERE id = '$userId';";
-		 		$result4 = mysqli_query($conn, $sql_select4);
-		 		$resultCheck4 = mysqli_num_rows($result4);
-		 		$sql_select5 = "SELECT id FROM scout WHERE id = '$userId';";
-		 		$result5 = mysqli_query($conn, $sql_select5);
-		 		$resultCheck5 = mysqli_num_rows($result5);
-
-		 		if ($resultCheck1 > 0) {
+		 	
+			if(($resultCheck3 > 0 && $password == $row['password']) || password_verify($password, $row['password']) == 1){
+				
+				if ($resultCheck1 > 0) {
 		 			session_start();
 			 		$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
@@ -96,6 +90,14 @@ if(isset($_POST['login-submit'])){
 			 		header("Location: home_scout.php");
 					exit();
 		 		}
+				
+			}
+
+		 	else {
+				
+				header("Location: login.php?error=wrongpassword");
+				exit();
+		 		
 		 	}
 		 } 
 	}
