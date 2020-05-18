@@ -68,7 +68,7 @@
 
                 <div align = "center">
                     <input name="policy" id="policy" type="checkbox">
-                    I have read the <a href="policy.txt" target="_blank">Terms and Conditions</a>.
+                    I have read the <a href="/cs353/php/text/policy.txt" target="_blank">Terms and Conditions</a>.
 
                 </div>
 
