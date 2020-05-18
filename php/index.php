@@ -30,17 +30,22 @@
         </div>
         <div class="col-md-3 ml-md-auto">
             <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/signup_journalist.php'">
-                Sign up as a journalist
+                Sign up as a Journalist
             </button>
         </div>
         <div class="col-md-3 ml-md-auto">
             <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/signup_agency.php'">
-                Sign up as an agency
+                Sign up as an Agency
             </button>
         </div>
         <div class="col-md-3 ml-md-auto">
             <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/signup_agent.php'">
-                Sign up as an agent
+                Sign up as an Agent
+            </button>
+        </div>
+        <div class="col-md-3 ml-md-auto">
+            <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/signup_scout.php'">
+                Sign up as an Scout
             </button>
         </div>
     </div>
