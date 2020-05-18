@@ -18,6 +18,12 @@
     	<button type="submit" name="logout-submit">Logout</button>
 
     </form>
+
+      <form onclick="window.location.href='/cs353/php/subscribe.php'">
+
+          <button type="button" name="subscribe">Subscribe</button>
+
+      </form>
     	
 
   </div>
