@@ -16,12 +16,12 @@
 		
 		if(!empty($_POST['agency']) && !empty($_POST['noOfScout']) && !empty($_POST['organization']) && sizeof($positions) > 0 && $resultCheck > 0){
     		
-    		$selected_agency = $_POST['agency'];
+    			$selected_agency = $_POST['agency'];
 			$club_id = $_SESSION['id'];
 			$start_date = date('Y-m-d');
 			$end_date = $_POST['end-date'];
-    		$selected_no_of_scouts = $_POST['noOfScout'];
-    		$selected_organization = $_POST['organization'];
+    			$selected_no_of_scouts = $_POST['noOfScout'];
+    			$selected_organization = $_POST['organization'];
 			$sql_select_agency_id = "SELECT id FROM agency WHERE name = '$selected_agency';";
 			$agency_id_result = mysqli_query($conn, $sql_select_agency_id);
 			$agency_id_fetch = mysqli_fetch_assoc($agency_id_result);
@@ -30,7 +30,7 @@
 			if (mysqli_num_rows($agency_id_result) > 0) {
 
 				$insert_request = "INSERT INTO request (no_of_req_scouts, organization, start_date, end_date) 
-									VALUES ('$selected_no_of_scouts','$selected_organization', '$start_date', '$end_date');";
+						VALUES ('$selected_no_of_scouts','$selected_organization', '$start_date', '$end_date');";
 				mysqli_query($conn, $insert_request);
 
 				$select_request = "SELECT MAX(id) AS id FROM request;";
@@ -45,7 +45,7 @@
 				foreach($positions as $position) {
 
 					$insert_positions ="INSERT INTO request_positions (id, position) VALUES ('$request_id','$position');";
-                    mysqli_query($conn, $insert_positions);
+                    			mysqli_query($conn, $insert_positions);
 
                 }
 
