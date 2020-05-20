@@ -49,7 +49,7 @@
 
                 }
 
-				header("Location: ../home_club.php");
+				header("Location: home_club.php");
 				exit();
 
 			}			
@@ -58,7 +58,7 @@
 
 		else{
 
-			header("Location:  ../scout_request.php?emptyForm");
+			header("Location:  scout_request.php?emptyForm");
 			exit();
 
 		}
