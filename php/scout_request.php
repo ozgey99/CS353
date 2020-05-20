@@ -4,7 +4,7 @@
     $conn = $cn;
 ?>
 <?php
-    $select_organization = "SELECT * FROM organizations;";
+    $select_organization = "SELECT * FROM organizations order by organization_name;";
     $result = mysqli_query($conn, $select_organization);
     $organizations = array();
     $resultCheck = mysqli_num_rows($result);
