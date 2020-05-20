@@ -46,7 +46,17 @@
           ?>
       </form>
 
-      <br><br>
+      <br>
+    <form method="post">
+      <button type = "submit" name = "offers">Show Offers to You</button>
+      <?php 
+        if(isset($_POST['request'])){
+          header("Location: offers.php");
+          exit();
+        }
+      ?>
+    </form>
+    <br><br>
       <div>
           <a href="club_reports.php" style="color: #0c5460">Want to see the reports?</a>
       </div>
