@@ -3,7 +3,10 @@ require 'header.php';
 include 'config.php';
 ?>
 <?php
-$select_footballer = "SELECT * FROM footballer order by name;";
+$cid = $_SESSION['id'];
+$select_footballer = "SELECT footballer.name FROM footballer, plays
+                        where footballer.id = plays.footballer_id
+                        and plays.club_id != $cid order by footballer.name;";
 $result = mysqli_query($cn, $select_footballer);
 $footballers = array();
 $resultCheck = mysqli_num_rows($result);
