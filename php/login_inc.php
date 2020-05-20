@@ -67,11 +67,35 @@ if(isset($_POST['login-submit'])){
 					exit();
 		 		}
 		 		else if ($resultCheck3 > 0) {
+					$sql_select_username = "SELECT name FROM agency;";
+					$sql_select_agency = "SELECT name, no_of_scouts FROM agency;";
+					$username_result = mysqli_query($conn, $sql_select_username);
+					$agency_result = mysqli_query($conn, $sql_select_agency);
+					$agencies = array();
+					$agency_list = array();
+					if(mysqli_num_rows($username_result) > 0){
+
+						while ($agency_row = mysqli_fetch_assoc($username_result)) {
+
+							$agencies[] = $agency_row;
+
+						}
+
+					}
+
+					foreach ($agencies as $agency) {
+
+						array_push($agency_list, $agency['name']);
+
+					}
+
 					session_start();
+
+					$_SESSION['agency_list'] = $agency_list;
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
-			 		header("Location: home_club.php");
+			 		header("Location: ../home_club.php");
 					exit();
 		 		}
 		 		else if ($resultCheck4 > 0) {
