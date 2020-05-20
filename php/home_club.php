@@ -21,12 +21,6 @@
     	<button type="submit" name="logout-submit">Logout</button>
 
     </form>
-      <br><br>
-      <div>
-          <a href="club_reports.php" style="color: #0c5460">Want to see the reports?</a>
-      </div>
-
-    <br>
 
     <form method="post">
       <button type = "submit" name = "request">Request Scout</button>
@@ -37,5 +31,12 @@
         }
       ?>
     </form>
+
+      <br><br>
+      <div>
+          <a href="club_reports.php" style="color: #0c5460">Want to see the reports?</a>
+      </div>
+
+      <br>
 
   </div>
