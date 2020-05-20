@@ -4,9 +4,8 @@ include 'config.php';
 session_start();
 
 if (isset($_POST['offer-submit']) && !empty($_SESSION['id'])) {
-    $offerer_name = $_SESSION['username'];
     $offerer_id = $_SESSION['id'];
-    $sql_select = "SELECT * FROM club WHERE name = '$offerer_name';";
+    $sql_select = "SELECT * FROM club WHERE id = '$offerer_id';";
     $result = mysqli_query($cn, $sql_select);
     $resultCheck = mysqli_num_rows($result);
 
