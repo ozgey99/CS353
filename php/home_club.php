@@ -50,7 +50,7 @@
     <form method="post">
       <button type = "submit" name = "offers">Show Offers to You</button>
       <?php 
-        if(isset($_POST['request'])){
+        if(isset($_POST['offers'])){
           header("Location: offers.php");
           exit();
         }
