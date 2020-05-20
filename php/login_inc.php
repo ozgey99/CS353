@@ -95,7 +95,7 @@ if(isset($_POST['login-submit'])){
 		 			$_SESSION['id'] = $row['id'];
 			 		$_SESSION['username'] = $row['username'];
 
-			 		header("Location: ../home_club.php");
+			 		header("Location: home_club.php");
 					exit();
 		 		}
 		 		else if ($resultCheck4 > 0) {
