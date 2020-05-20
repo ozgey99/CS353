@@ -31,7 +31,7 @@ if (isset($_POST['offer-submit']) && !empty($_SESSION['id'])) {
             $insert_offers = "INSERT INTO offers (offerer_id, offeree_id, footballer_id, transfer_offer) 
 									VALUES ('$offerer_id','$offeree_id', '$footballer_id', '$offer');";
             mysqli_query($cn, $insert_offers);
-            header("Location: ../home_club.php");
+            header("Location: home_club.php");
             exit();
 
         }
@@ -40,7 +40,7 @@ if (isset($_POST['offer-submit']) && !empty($_SESSION['id'])) {
 
     else{
 
-        header("Location:  ../transfer_offer.php?emptyForm");
+        header("Location:  transfer_offer.php?emptyForm");
         exit();
 
     }
