@@ -13,6 +13,9 @@
     	if (isset($_SESSION['id'])) {
     		echo "<p class='login-status'>You are logged in as Agency!</p>";
     	}
+      else {
+            echo "<p class='login-status'>You are logged out!</p>";
+      }
     ?>
       <br>
     <form action="logout_inc.php">
