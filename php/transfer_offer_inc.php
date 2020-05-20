@@ -9,7 +9,7 @@ if (isset($_POST['offer-submit']) && !empty($_SESSION['id'])) {
     $result = mysqli_query($cn, $sql_select);
     $resultCheck = mysqli_num_rows($result);
 
-    if(!empty($_POST['footballer']) && !empty($_POST['offer']) && is_integer($_POST['offer']) && $resultCheck > 0){
+    if(!empty($_POST['footballer']) && !empty($_POST['offer']) && is_numeric($_POST['offer']) && $resultCheck > 0){
         $selected_footballer = $_POST['footballer'];
         $offerer_id = $_SESSION['id'];
         $sql_select_offeree_id = "SELECT club_id FROM plays, footballer

@@ -6,7 +6,6 @@
 	session_start();
 
 	if (isset($_POST['request-submit']) && !empty($_SESSION['id'])) {
-		echo "hello";
 		$club_id = $_SESSION['id'];
 		$sql_select = "SELECT * FROM club WHERE id = '$club_id';";
 		$result = mysqli_query($conn, $sql_select);
