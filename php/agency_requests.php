@@ -1,40 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <title>Requests</title>
+
     <style>
         table, th, td {
-            border: 1px solid #02024c;
+            border: 0.5px solid #02024c;
+        }
+        .button {
+            background-color: #4CAFBB;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 16px 2px;
+            border-radius: 4px;
         }
     </style>
+
 </head>
 <body>
+<div align="right">
+    <button type="button" class="button" onclick="window.location.href='home_agency.php'">
+        Home
+    </button>
+
+    <button type="button" class="button" onclick="window.location.href='profile_agency.php'">
+        Profile
+    </button>
+</div>
+
 
 <?php
 include 'config.php';
 
 $uid = $_SESSION['id'];
-$sql_select = "SELECT club.name, request.no_of_req_scouts, request_positions.position, request.start_date, request.end_date
-               FROM request, requests, request_positions, club
-               WHERE requests.agency_id = '$uid' 
+$p = "pending";
+
+$result3 = mysqli_query($cn, "select count(*) as c from scout, works 
+                                    where scout.id = works.scout_id and scout.availability=0 
+                                    and works.agency_id= $uid");
+$existingNoOfScouts = $result3->fetch_assoc();
+
+echo "existing no of available scouts: ".$existingNoOfScouts['c'];
+
+
+
+$sql_select = "SELECT request.id as id, club.name as clubName, request.no_of_req_scouts as noOfScouts, 
+                request.organization as org, request.start_date as sDate, request.end_date as eDate
+               FROM request, requests, club
+               WHERE requests.agency_id = '$uid'
+               and requests.status = '$p' 
                and request.id = requests.request_id
-               and requests.club_id = club.id
-               and request.id = request_positions.id";
+               and requests.club_id = club.id";
 
 $result = mysqli_query($cn, $sql_select);
 
-if ($result->num_rows > 0) {
-    echo "<table><tr><th>Club</th><th>Number of requested scouts</th><th>Position</th><th>Start Date</th><th>End Date</th></tr>";
+if ($result->num_rows > 0) { ?>
+    <div>
+        <form name="form" action="respond_request.php" onsubmit="return validate()" method="post">
+            <table>
+                <tr><th>Club</th><th>Number of Scouts</th><th>Organization</th><th>Positions</th><th>Start Date</th><th>End Date</th><th>Respond</th></tr>
 
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["club.name"]."</td><td>".$row["request.no_of_req_scouts"]."</td><td>".$row["request_positions.position"]."</td><td>
-             ".$row["request.start_date"]."</td><td>".$row["request.end_date"]."</td></tr>";
-    }
+                <?php
+                while ($row = $result->fetch_assoc()){
+                    echo "<tr><td>".$row["clubName"]."</td><td>".$row["noOfScouts"]."</td><td>".$row["org"]."</td>";
+                    $query = "SELECT position FROM request_positions WHERE id=".$row['id'];
+                    $result2 = mysqli_query($cn, $query);
+                    $row2 = "";
+                    while($positions = mysqli_fetch_assoc($result2)){
+                        $row2 = $row2.$positions['position'].", ";
+                    }
+                    echo "<td>".$row2."</td><td>".$row["sDate"]."</td><td>".$row["eDate"]."</td><td> 
+                        
+                       <input type='radio' name='select' value=".$row['id'] ."></td></tr>";
+                }
+                ?>
+            </table>
 
-    echo "</table>";
+            <button type="submit" class="button" name="reject" id="reject">Reject</button>
+
+            <button type="submit" class="button" name="accept" id="accept">Accept</button>
+
+        </form>
+    </div>
+
+    <?php
 } else {
     echo "No requests yet.";
 }
 ?>
+
+<script type="text/javascript">
+    function validate() {
+        alert("in validate");
+        <?php
+        $result4= mysqli_query($cn, "select no_of_req_scouts as n from request where id=".$_POST['select']);
+        $noOf = $result4->fetch_assoc()['n'];
+        ?>
+        var requestedScouts = parseInt("<?php echo $noOf; ?> ");   console.log(requestedScouts);
+        var existingScouts = parseInt("<?php echo $existingNoOfScouts['c']; ?>");  console.log(existingScouts);
+        alert("req, existing: " + requestedScouts + " " + existingScouts);
+
+        if (existingScouts < requestedScouts){
+            alert ("Currently there is not enough scouts available to accept this request");
+            return false;
+        }
+    }
+</script>
 
 </body>
 </html>
