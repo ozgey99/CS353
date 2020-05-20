@@ -39,11 +39,11 @@
 
 
     <div align="center">
-        <button type="button" class="button" onclick="window.location.href='/cs353/php/home_journalist.php'">
+        <button type="button" class="button" onclick="window.location.href='home_journalist.php'">
             Home
         </button>
 
-        <button type="button" class="button" onclick="window.location.href='/cs353/php/subscribe.php'">
+        <button type="button" class="button" onclick="window.location.href='subscribe.php'">
             Back
         </button>
     </div>

@@ -1,3 +1,4 @@
+<title>Assign Scout</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <?php
 require "config.php";

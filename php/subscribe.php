@@ -24,11 +24,11 @@
 
 
     <div align="right">
-        <button type="button" class="button" onclick="window.location.href='/cs353/php/home_journalist.php'">
+        <button type="button" class="button" onclick="window.location.href='home_journalist.php'">
             Home
         </button>
 
-        <button type="button" class="button" onclick="window.location.href='/cs353/php/profile_journalist.php'">
+        <button type="button" class="button" onclick="window.location.href='profile_journalist.php'">
             Profile
         </button>
     </div>
@@ -68,7 +68,7 @@
 
                 <div align = "center">
                     <input name="policy" id="policy" type="checkbox">
-                    I have read the <a href="/cs353/php/text/policy.txt" target="_blank">Terms and Conditions</a>.
+                    I have read the <a href="/text/policy.txt" target="_blank">Terms and Conditions</a>.
 
                 </div>
 

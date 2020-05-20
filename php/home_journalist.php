@@ -19,7 +19,7 @@
 
     </form>
 
-      <form onclick="window.location.href='/cs353/php/subscribe.php'">
+      <form onclick="window.location.href='subscribe.php'">
 
           <button type="button" name="subscribe">Subscribe</button>
 
