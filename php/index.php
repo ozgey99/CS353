@@ -23,7 +23,7 @@
     </body>
 
     <div class="row" style="color: #1d2124">
-        <div class="col-md-2 ml-md-auto" align="center">
+        <div class="col-md-1 ml-md-auto" align="center">
             <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/login.php'">
                 Login
             </button>
@@ -43,9 +43,9 @@
                 Sign up as an Agent
             </button>
         </div>
-        <div class="col-md-3 ml-md-auto">
+        <div class="col-md-2 ml-md-auto">
             <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location.href='/signup_scout.php'">
-                Sign up as an Scout
+                Sign up as a Scout
             </button>
         </div>
     </div>
