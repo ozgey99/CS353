@@ -14,5 +14,12 @@
         mysqli_query($cn,$query5);
         header("Location: scouts.php");
     }
+    if(isset($_POST['release'])) {
+        $footballer_id = $_POST['footballer_id'];
+        $query1 = "DELETE FROM manages WHERE footballer_id = '$footballer_id'";
+
+        mysqli_query($cn,$query1);
+        header("Location: myfootballers.php");
+    }
 
 ?> 
