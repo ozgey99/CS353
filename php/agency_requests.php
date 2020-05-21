@@ -61,7 +61,7 @@ $result = mysqli_query($cn, $sql_select);
 
 if ($result->num_rows > 0) { ?>
     <div>
-        <form name="form" action="respond_request.php" onsubmit="return validate()" method="post">
+        <form name="form" action="respond_request.php" method="post">
             <table>
                 <tr><th>Club</th><th>Number of Scouts</th><th>Organization</th><th>Positions</th><th>Start Date</th><th>End Date</th><th>Respond</th></tr>
 
@@ -93,24 +93,6 @@ if ($result->num_rows > 0) { ?>
     echo "No requests yet.";
 }
 ?>
-
-<script type="text/javascript">
-    function validate() {
-        alert("in validate");
-        <?php
-        $result4= mysqli_query($cn, "select no_of_req_scouts as n from request where id=".$_POST['select']);
-        $noOf = $result4->fetch_assoc()['n'];
-        ?>
-        var requestedScouts = parseInt("<?php echo $noOf; ?> ");   console.log(requestedScouts);
-        var existingScouts = parseInt("<?php echo $existingNoOfScouts['c']; ?>");  console.log(existingScouts);
-        alert("req, existing: " + requestedScouts + " " + existingScouts);
-
-        if (existingScouts < requestedScouts){
-            alert ("Currently there is not enough scouts available to accept this request");
-            return false;
-        }
-    }
-</script>
 
 </body>
 </html>

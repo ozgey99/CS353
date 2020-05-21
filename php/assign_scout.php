@@ -4,23 +4,24 @@
 require "config.php";
 $requestId = $_SESSION['selectedRequest'];
 $agencyID = $_SESSION['id'];
+
+
+
 if(isset($_POST["framework"])) {
     foreach ($_POST["framework"] as $scoutID) {
+        $a="accepted";
+        $update = "UPDATE requests SET status = '$a' WHERE request_id= $requestId AND agency_id = '$agencyID'";
+        $result3 = mysqli_query($cn, $update);
         $one =1;
         //set scout as not available
         $result = mysqli_query($cn, "update scout set availability = '$one' where id=".$scoutID);
         //fill assigns table
         $result2 = mysqli_query($cn, "insert into assigns values('$agencyID', '$requestId','$scoutID')");
 
-        if($result == true && $result2 == true){
-            echo "Scouts are assigned successfully";
-        }
-        else{
-            echo "Something went wrong while assigning";
-        }
     }
 } ?>
-
+<h2>Request is accepted</h2>
+<h2>Scouts are assigned successfully</h2>
 <div align="center">
     <button type="button" class="button" onclick="window.location.href='home_agency.php'">
         Home

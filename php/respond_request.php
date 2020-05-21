@@ -17,11 +17,7 @@ $_SESSION['selectedRequest'] = $requestID;
 $agencyID = $_SESSION['id'];
 
 if( isset($_POST["accept"]) ){
-    $a="accepted";
-    $update = "UPDATE requests SET status = '$a' WHERE request_id= $requestID AND agency_id = '$agencyID'";
-
-    if(mysqli_query($cn,$update)){
-        ?> <h3 align='center'>You have accepted the request, assign some scouts</h3>
+        ?> <h3 align='center'>Now assign some scouts to this request</h3>
         <div>
             <?php
             $sql = "select club.name as clubName, a.no_of_req_scouts as noOfScouts, 
@@ -85,23 +81,25 @@ if( isset($_POST["accept"]) ){
 
                     <div class="form-group">
                         <br>
+                        <button type="button" class="button" onclick="window.location.href='agency_requests.php'">
+                            See Other Requests
+                        </button>
                         <input name="submit" type="submit" class="btn btn-info" value="Continue">
                     </div>
                 </form>
             </div>
         </div>
         <?php
-    }
 }
 else{
-    $rejected = "rejected";
+
     $r="rejected";
     $update = "UPDATE requests SET status = '$r' WHERE request_id= '$requestID'AND agency_id = '$agencyID' ";
     if(mysqli_query($cn,$update)) {
-        echo "update successful";
+        echo "<h2>Request is rejected</h2>";
     }
     else{
-        echo "not successful";
+        echo "<h2>Something went wrong</h2>";
     }
     ?>
     <div align="center">
