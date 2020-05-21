@@ -26,6 +26,16 @@
           ?>
       </form>
       <br>
+      <form method="post">
+          <button type = "submit" name = "myfootballers">See your footballers</button>
+          <?php
+          if(isset($_POST['myfootballers'])){
+              header("Location: myfootballers.php");
+              exit();
+          }
+          ?>
+      </form>
+      <br>
     <form action="logout_inc.php">
 
     	<button type="submit" name="logout-submit">Logout</button>
