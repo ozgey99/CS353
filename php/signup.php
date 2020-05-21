@@ -46,12 +46,13 @@
                 $query2 = "INSERT INTO journalist(id,name)
                              VALUES ('$id','$name')";
                 mysqli_query($db,$query2);
+                header("Location: login.php");
             }
             else {
                 array_push($errors,"ERROR: journalist signup");
             }
         }
-        header("Location: login.php");
+        
     }
 
     if(isset($_POST['signup_agency'])) {
@@ -95,12 +96,13 @@
                 $query2 = "INSERT INTO agency(id,name,activation_key)
                             VALUES ('$id','$agency_name','$activationKey')";
                 mysqli_query($db,$query2);
+                header("Location: login.php");
             }
             else {
                 array_push($errors,"ERROR: agency signup");
             }
         }
-        header("Location: login.php");
+        
     }
 
     if(isset($_POST['signup_agent'])) {
@@ -109,7 +111,7 @@
         $name = mysqli_real_escape_string($db, $_POST['name']);
         $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
         $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
-
+        $footballers = $_POST['footballers'];
         if(empty($username)) {
             array_push($errors,"Username cannot be empty!");
         }
@@ -128,6 +130,16 @@
         if($usernameResult > 0) {
             array_push($errors,"This username has taken before, please select another one!");
         }
+        if(count($footballers)== 0) {
+            array_push($errors,"You have to select at least a player.");
+        }
+        foreach($footballers as $footballer) {
+            $query = "SELECT * FROM manages WHERE footballer_id = '$footballer'";
+            $result = mysqli_query($cn,$query);
+            if(mysqli_num_rows($result) != 0) {
+                array_push($errors,"There is a footballer which already have an agent!");
+            }
+        }
 
         if(count($errors) == 0) {
             $password = password_hash($password_1,PASSWORD_DEFAULT);
@@ -143,12 +155,18 @@
                 $query2 = "INSERT INTO agent(id,name)
                                  VALUES ('$id','$name')";
                 mysqli_query($db,$query2);
+                foreach($footballers as $footballer) {
+                    $query3 = "INSERT INTO manages(footballer_id,agent_id) 
+                                VALUES('$footballer','$id')";
+                    mysqli_query($cn,$query3);
+                }
+                header("Location: login.php");
             }
             else {
                 array_push($errors,"ERROR: agent signup");
             }
         }
-        header("Location: login.php");
+        
     }
 
 
@@ -226,13 +244,12 @@
 
                 $query4= "UPDATE agency SET no_of_scouts = '$no_of_scouts' WHERE id = '$agency_id'";
                 mysqli_query($db,$query4);
-
+                header("Location: login.php");
             }
             else {
                 array_push($errors,"ERROR: scout signup");
             }
         }
-        header("Location: login.php");
     }
 
     if(isset($_POST['signup_footballer'])) {
@@ -371,12 +388,13 @@
                 $query2 = "INSERT INTO club(id,name,budget,league,city,director,value,num_of_players)
                         VALUES ('$id','$name','$budget','$league','$city','$director','$value','$num_of_players')";
                 mysqli_query($db,$query2);
+                header("Location: login.php");
             }
             else {
-                array_push($errors,"ERROR: agent signup");
+                array_push($errors,"ERROR: club signup");
             }
         }
-        header("Location: login.php");
+        
     }
     
 ?>
