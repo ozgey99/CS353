@@ -74,7 +74,7 @@
                                 <td>$positions</td>
                                 <td>$leagues</td>
                                 <td>$no_of_reports</td>
-                                <td>$availability</td>
+                                <td>Available</td>
                                 <input type='hidden' name='scout_id' value='$scout_id' />
                                 <td><button type='submit' name='fire' class='btn' onclick=\"return confirm('Are you sure?')\">Fire!</button></td>
                             </tr>";
@@ -86,7 +86,7 @@
                                 <td>$positions</td>
                                 <td>$leagues</td>
                                 <td>$no_of_reports</td>
-                                <td>$availability</td>
+                                <td>Busy</td>
                             </tr>";
                         }
                     }
