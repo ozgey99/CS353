@@ -55,16 +55,14 @@
                         $result2 = mysqli_query($cn,$query2);
                         $result3 = mysqli_query($cn,$query3);
                         $result4 = mysqli_query($cn,$query4);
-                        $row2 = mysqli_fetch_array($result2);
-                        $row3 = mysqli_fetch_array($result3);
                         $positions= "";
                         $leagues = "";
                         $no_of_reports = mysqli_num_rows($result4);
-                        foreach( $row2 as $pos) {
-                            $positions .= "$pos ";
+                        while($row2 = mysqli_fetch_assoc($result2)) {
+                            $positions .= $row2['position'] . " ";
                         }
-                        foreach( $row3 as $league) {
-                            $leagues .= "$league ";
+                        while($row3 = mysqli_fetch_assoc($result3)) {
+                            $leagues .= $row3['league'] . " ";
                         }
                         
                         if($availability == 0) {
