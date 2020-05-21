@@ -40,10 +40,10 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table> <br><button type='submit' class='button' name='view' id='view'>View</button> 
   </form>";
 ?>
-    <br> <button type='button' class='button' onclick="window.location.href='/cs353/php/transfer_offer.php'">
+    <br> <button type='button' class='button' onclick="window.location.href='transfer_offer.php'">
     Transfer Offer Page
     </button>
-    <br> <button type='button' class='button' onclick="window.location.href='/cs353/php/home_club.php'">
+    <br> <button type='button' class='button' onclick="window.location.href='home_club.php'">
         Home
     </button>
     <?php

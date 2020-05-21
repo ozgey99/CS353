@@ -17,7 +17,7 @@
 
     $row = $result->fetch_assoc();
     ?>
-    <button type='button' class='button' onclick="window.location.href='/cs353/php/club_reports.php'">
+    <button type='button' class='button' onclick="window.location.href='club_reports.php'">
     Close
     </button> <br> <?php
     echo "<p><b>Footballer: </b>".$row['footballer']."</p>
