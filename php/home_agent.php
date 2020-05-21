@@ -14,12 +14,24 @@
     	}
 
     ?>
+
+      <br>
+      <form method="post">
+          <button type = "submit" name = "recommend">Make a recommendation to a club</button>
+          <?php
+          if(isset($_POST['recommend'])){
+              header("Location: recommend.php");
+              exit();
+          }
+          ?>
+      </form>
+      <br>
     <form action="logout_inc.php">
 
     	<button type="submit" name="logout-submit">Logout</button>
 
     </form>
-    	
+
 
   </div>
 
