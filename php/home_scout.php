@@ -13,30 +13,34 @@
     		echo "<p class='login-status'>You are logged in as Scout!</p>";
     	}
     ?>
-      <br>
 
     <form action="report.php" method="post">
 
-      <button type="submit" name="report">Create Report</button>
+      <button type="submit" class="btn btn-info" name="report">Create Report</button>
     
     </form>
+
+      <br>
 
     <form action="watchlist.php" method="post">
 
-      <button type="submit" name="report">Add Player to Watchlist</button>
+      <button type="submit" class="btn btn-info" name="report">Add Player to Watchlist</button>
     
     </form>
+      <br>
+
+      <form action="scout_tasks.php">
+          <button type="submit" class="btn btn-info" name="tasks-scout-submit">See Your Tasks</button>
+      </form>
+      <br>
 
     <form action="logout_inc.php">
 
-      <button type="submit" name="logout-submit">Logout</button>
+      <button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
 
     </form>
     
       <br> <br>
-      <div>
-          <a href="scout_tasks.php" style="color: #0c5460">Want to see your tasks?</a>
-      </div>
 
   </div>
 

@@ -60,9 +60,12 @@
 			<label>Comments about football player:</label>
 			<br>
 			<textarea name="comment" rows="8" cols="80" placeholder="Enter your comment here..."></textarea>
-			<button type="submit" name="report-submit">Submit</button>
+			<button type="submit" class="btn btn-primary" name="report-submit">Submit</button>
 
 		</form>
-	    <a href="home_scout.php" class="home">Home</a> 
+        <br>
+        <button type='button' class="btn btn-info" onclick="window.location.href='home_scout.php'">
+            Home
+        </button>
     </div>
 </div>

@@ -29,8 +29,8 @@
               <?php } ?>
             </select>
 
-            <button type="submit" name="watchlist-submit">Submit</button>
-            <button type="submit" name="watchlist-done">I am done</button>
+            <button type="submit" class="btn btn-primary" name="watchlist-submit">Submit</button>
+            <button type="submit" class="btn btn-success" name="watchlist-done">I am done</button>
 
 
       </form> 
