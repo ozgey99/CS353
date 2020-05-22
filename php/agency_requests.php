@@ -27,15 +27,6 @@ include 'header.php';
 
 </head>
 <body>
-<div align="right">
-    <button type="button" class="button" onclick="window.location.href='home_agency.php'">
-        Home
-    </button>
-
-    <button type="button" class="button" onclick="window.location.href='profile_agency.php'">
-        Profile
-    </button>
-</div>
 
 
 <?php
@@ -100,5 +91,9 @@ if ($result->num_rows > 0) { ?>
 }
 ?>
 
+<br>
+<button type="button" class="btn btn-info" onclick="window.location.href='home_agency.php'">
+    Home
+</button>
 </body>
 </html>
