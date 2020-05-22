@@ -17,6 +17,7 @@
         echo "<p class='login-status'>You are logged out!</p>";
       }
 
+
     ?>
 
       <br>
@@ -82,9 +83,15 @@
       </form>
 
       <br>
+
+      <form action="profile_club.php">
+          <button type="submit" class="btn btn-warning" name="prof-club-submit">See Your Profile</button>
+      </form>
+
+      <br>
       <form action="logout_inc.php">
 
-          <button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
+          <button type="submit" class="btn btn-danger" name="logout-submit" onclick="window.location.href = 'http://footballerscout.epizy.com/profile_club.php?type=club&id='$id';">Logout</button>
 
       </form>
 

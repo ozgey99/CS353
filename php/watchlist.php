@@ -5,7 +5,8 @@
 ?>
 <?php 
       
-      $select_footballer = "SELECT name FROM footballer;";
+      $select_footballer = "SELECT name FROM footballer
+                            order by name;";
       $result = mysqli_query($conn, $select_footballer);
       $footballers = array();
       $resultCheck = mysqli_num_rows($result);
