@@ -79,5 +79,6 @@
         ?>
     </table>
 </form>
+<a href="home_agent.php" class="home">Home</a>
 </body>
 </html>
