@@ -67,5 +67,6 @@ while ($row = mysqli_fetch_assoc($result2)) {
 
             <button type="submit" name="recommendation-submit">Submit</button>
         </form>
+        <a href="home_agent.php" class="home">Home</a>
     </div>
 </div>
