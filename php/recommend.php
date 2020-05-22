@@ -6,27 +6,27 @@ include 'config.php';
 $aid = $_SESSION['id'];
 $select_footballer = "SELECT footballer.name FROM footballer, manages
                         where footballer.id = manages.footballer_id
-                        and manages.agent_id = $aid order by footballer.name;";
+                        and manages.agent_id = '$aid' order by footballer.name;";
 $result = mysqli_query($cn, $select_footballer);
 $footballers = array();
 $resultCheck = mysqli_num_rows($result);
-
-$select_team = "SELECT club.name FROM footballer, plays, club
-                        where plays.club_id = club.id and plays.footballer_id = footballer.id
-                        and club.id not in (select plays.club_id from footballer, manages, plays
-                                            where manages.footballer_id = footballer.id and plays.footballer_id = footballer.id
-                                            and manages.agent_id = $aid)
-                        order by club.name;";
-$result2 = mysqli_query($cn, $select_team);
-$teams = array();
-$resultCheck2 = mysqli_num_rows($result2);
 
 while ($row = mysqli_fetch_assoc($result)) {
     $footballers[] = $row['name'];
 }
 
+$select_team = "SELECT distinct club.name FROM footballer, plays, club
+                        where plays.club_id = club.id and plays.footballer_id = footballer.id
+                        and club.id not in (select plays.club_id from footballer, manages, plays
+                                            where manages.footballer_id = footballer.id and plays.footballer_id = footballer.id
+                                            and manages.agent_id = '$aid')
+                        order by club.name;";
+$result2 = mysqli_query($cn, $select_team);
+$teams = array();
+$resultCheck2 = mysqli_num_rows($result2);
+
 while ($row = mysqli_fetch_assoc($result2)) {
-    $teams[] = $row['club.name'];
+    $teams[] = $row['name'];
 }
 ?>
 <div class="container">

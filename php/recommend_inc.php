@@ -9,7 +9,7 @@ if (isset($_POST['recommendation-submit']) && !empty($_SESSION['id'])) {
     $result = mysqli_query($cn, $sql_select);
     $resultCheck = mysqli_num_rows($result);
 
-    if(!empty($_POST['footballer']) && !empty($_POST['team']) && !empty($_POST['comment']) && $resultCheck > 0){
+    if(!empty($_POST['footballer']) && !empty($_POST['team']) && !empty($_POST['comment']) && $resultCheck > 0 && $resultCheck2 > 0){
         $selected_footballer = $_POST['footballer'];
         $selected_club = $_POST['team'];
         $agent_id = $_SESSION['id'];
