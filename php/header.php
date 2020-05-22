@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<h1>SCOUT ONLINE</h1>
+    <div class="header">
+        <img src="logo3.png" alt="logo" width="120" height="120"></img>
+    </div>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
