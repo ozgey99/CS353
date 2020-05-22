@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     $errors = array();
     $id = $_SESSION['id'];
 
@@ -14,7 +15,6 @@
 <html>
 <head>
     <title>Scout Online</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
@@ -23,7 +23,7 @@
 
 <form method="post" action="firing.php">
     <?php include('errors.php'); ?>
-    <table id="offers" class="offers-class" style="width:100%">
+    <table id="offers" class="table">
         <thead>
             <tr>
                 <th>Team</th>
@@ -59,7 +59,7 @@
                         $club_name = mysqli_fetch_assoc(mysqli_query($cn,"SELECT name FROM club WHERE id=$club_id"))['name'];
                         
                         echo 
-                            "<tr style='text-align:center'>
+                            "<tr>
                                 <th>$club_name</th>
                                 <th>$name</th>
                                 <th>$position</th>
@@ -67,7 +67,7 @@
                                 <th>$nationality</th>
                                 <th>$value</th>
                                 <input type='hidden' name='footballer_id' value='$footballer_id' />
-                                <td><button type='submit' name='release' class='btn' onclick=\"return confirm('Are you sure?')\">Release</button></td>
+                                <td><button type='submit' name='release' class='btn btn-primary' onclick=\"return confirm('Are you sure?')\">Release</button></td>
                             </tr>";
                         
                     }

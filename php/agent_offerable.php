@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     $errors = array();
     $id = $_SESSION['id'];
     $query = "SELECT id FROM club WHERE id = '$id'";
@@ -15,7 +16,6 @@
 <html>
 <head>
     <title>Scout Online</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
@@ -24,7 +24,7 @@
 
 <form method="post" action="agent_offer.php">
     <?php include('errors.php'); ?>
-    <table id="offers" class="offers-class" style="width:100%">
+    <table id="offers" class="table">
         <thead>
             <tr>
                 <th>Team</th>
@@ -53,7 +53,7 @@
                     $team = mysqli_fetch_assoc(mysqli_query($cn,"SELECT name FROM club WHERE id='$offeree_id'"))['name'];
                     $agent_id = mysqli_fetch_assoc(mysqli_query($cn, "SELECT agent_id from manages where footballer_id = '$footballer_id'"))['agent_id'];
                     echo 
-                        "<tr style='text-align:center'>
+                        "<tr>
                             <td>$team</td>
                             <td>$name</td>
                             <td>$position</td>
@@ -71,5 +71,9 @@
         ?>
     </table>
 </form>
+<br>
+<button type='button' class="btn btn-info" onclick="window.location.href='home_club.php'">
+    Home
+</button>
 </body>
 </html>

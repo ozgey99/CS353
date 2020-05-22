@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     $errors = array();
     $id = $_SESSION['id'];
 
@@ -22,7 +23,6 @@
         <html>
         <head>
             <title>Scout Online</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
         </head>
         <body>
         <div class="header">
@@ -31,7 +31,7 @@
 
         <form method="post" action="offer_answer.php">
             <?php include('errors.php'); ?>
-            <table id="offers" class="offers-class" style="width:100%">
+            <table id="offers" class="table">
                 <thead>
                     <tr>
                         <th>Team</th>
@@ -57,14 +57,14 @@
                             $position = mysqli_fetch_assoc(mysqli_query($cn,"SELECT position FROM footballer_positions WHERE id = '$footballer_id'"))['position'];
                             $team = mysqli_fetch_assoc(mysqli_query($cn,"SELECT name FROM club WHERE id='$offerer_id'"))['name'];
                             echo 
-                                "<tr style='text-align:center'>
+                                "<tr>
                                     <td>$team</td>
                                     <td>$name</td>
                                     <td>$position</td>
                                     <td>$age</td>
                                     <td>€$value</td>
                                     <input type='hidden' name='offerer' value='$offerer_id' />
-                                    <td><button type='submit' name='show-more' value='$footballer_id' class='btn'>Show more</button></td>
+                                    <td><button type='submit' name='show-more' value='$footballer_id' class='btn btn-info'>Show more</button></td>
                                 </tr>";
                         }
                     }
@@ -74,6 +74,10 @@
                 ?>
             </table>
         </form>
+        <br>
+        <button type='button' class="btn btn-info" onclick="window.location.href='home_club.php'">
+            Home
+        </button>
         </body>
         </html>
 <?php }
@@ -83,7 +87,6 @@
         <html>
         <head>
             <title>Scout Online</title>
-            <link rel="stylesheet" type="text/css" href="style.css">
         </head>
         <body>
         <div class="header">
@@ -91,7 +94,7 @@
         </div>
         <form method="post" action="offer_answer.php">
             <?php include('errors.php'); ?>
-            <table id="offers" class="offers-class" style="width:100%">
+            <table id="offers" class="table">
                 <thead>
                     <tr>
                         <th>Team</th>
@@ -123,7 +126,7 @@
                                 $position = mysqli_fetch_assoc(mysqli_query($cn,"SELECT position FROM footballer_positions WHERE id = '$footballer_id'"))['position'];
                                 $team = mysqli_fetch_assoc(mysqli_query($cn,"SELECT name FROM club WHERE id='$offerer_id'"))['name'];
                                 echo 
-                                    "<tr style='text-align:center'>
+                                    "<tr>
                                         <td>$team</td>
                                         <td>$name</td>
                                         <td>$position</td>
@@ -133,7 +136,7 @@
                                         <input type='hidden' name='fee' value='$fee' />
                                         <input type='hidden' name='offerer' value='$offerer_id' />
                                         <input type='hidden' name='offeree' value='$offeree_id' />
-                                        <td><button type='submit' name='show-more2' value='$footballer_id' class='btn'>Show more</button></td>
+                                        <td><button type='submit' name='show-more2' value='$footballer_id' class='btn btn-info'>Show more</button></td>
                                     </tr>";
                             }
                         }
@@ -144,6 +147,10 @@
                 ?>
             </table>
         </form>
+        <br>
+        <button type='button' class="btn btn-info" onclick="window.location.href='home_agent.php'">
+            Home
+        </button>
 
         </body>
         </html>

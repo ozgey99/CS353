@@ -1,5 +1,6 @@
 <?php    
     include "config.php";
+    include "header.php";
     if(isset($_POST['offer-agent'])){
         $footballer_id = $_POST['offer-agent'];
         $offeree_id = $_POST['offeree'];
@@ -37,7 +38,6 @@
         <html>
         <head>
             <title>Scout Online</title>
-            <link rel="stylesheet" type="text/css"" href="style.css">
         </head>
         <body>
         <div class="header">
@@ -59,9 +59,10 @@
             <input type="hidden" name="offeree" value="<?php echo $offeree_id; ?>" />
             <input type="hidden" name="offerer" value="<?php echo $offerer_id; ?>" />
             <input type="hidden" name="agent" value="<?php echo $agent_id; ?>" />
-            <td><button type='submit' name='offer' class='btn'>Send</button></td>
-            <td><button type='submit' name='cancel' class='btn'>Cacel</button></td>
+            <td><button type='submit' name='offer' class='btn btn-primary'>Send</button></td>
+            <td><button type='submit' name='cancel' class='btn btn-danger'>Cancel</button></td>
         </form>
+        <br>
         </body>
         </html> 
         <?php }

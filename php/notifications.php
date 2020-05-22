@@ -10,7 +10,7 @@
 
     <form action="notifications_inc.php" method="post">
 
-      <table id="offers" class="offers-class" style="width:100% border: 1px solid black; border-collapse: collapse;">
+      <table id="offers" class="table">
         <thead>
           <tr>
             <th>Notification No.</th>

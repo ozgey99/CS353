@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     $errors = array();
     $id = $_SESSION['id'];
 
@@ -16,7 +17,6 @@
 <html>
 <head>
     <title>Scout Online</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
@@ -25,7 +25,7 @@
 
 <form method="post" action="offer_answer.php">
     <?php include('errors.php'); ?>
-    <table id="offers" class="offers-class" style="width:100%">
+    <table id="offers" class="table">
         <thead>
             <tr>
                 <th>Team</th>
@@ -53,7 +53,7 @@
                     $position = mysqli_fetch_assoc(mysqli_query($cn,"SELECT position FROM footballer_positions WHERE id = '$footballer_id'"))['position'];
                     $team = mysqli_fetch_assoc(mysqli_query($cn,"SELECT name FROM club WHERE id='$offeree_id'"))['name'];
                     echo 
-                        "<tr style='text-align:center'>
+                        "<tr>
                             <td>$team</td>
                             <td>$name</td>
                             <td>$position</td>
@@ -62,8 +62,8 @@
                             <td>€$fee</td>
                             <input type='hidden' name='offeree' value='$offeree_id' />
                             <input type='hidden' name='fee' value='$fee' />
-                            <td><button type='submit' name='edit' value='$footballer_id' class='btn'>Edit</button></td>
-                            <td><button type='submit' name='cancel' value='$footballer_id' class='btn'>Cancel</button></td>
+                            <td><button type='submit' name='edit' value='$footballer_id' class='btn btn-primary'>Edit</button></td>
+                            <td><button type='submit' name='cancel' value='$footballer_id' class='btn btn-danger'>Cancel</button></td>
                         </tr>";
                 }
             }
@@ -73,5 +73,9 @@
         ?>
     </table>
 </form>
+<br>
+<button type='button' class="btn btn-info" onclick="window.location.href='home_club.php'">
+    Home
+</button>
 </body>
 </html>

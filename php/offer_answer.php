@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     if(isset($_POST['show-more'])){ 
     $footballer_id = $_POST['show-more'];
     $offerer_id = $_POST['offerer'];
@@ -35,7 +36,6 @@
             <html>
             <head>
                 <title>Scout Online</title>
-                <link rel="stylesheet" type="text/css"" href="style.css">
             </head>
             <body>
             <div class="header">
@@ -53,8 +53,8 @@
                 <input type="hidden" name="footballer" value="<?php echo $footballer_id; ?>" />
                 <input type="hidden" name="old_team" value="<?php echo $id; ?>" />
                 <input type="hidden" name="new_team" value="<?php echo $offerer_id; ?>" />
-                <td><button type='submit' name='accept' class='btn'>Accept</button></td>
-                <td><button type='submit' name='reject' class='btn'>Reject</button></td>
+                <td><button type='submit' name='accept' class='btn btn-primary'>Accept</button></td>
+                <td><button type='submit' name='reject' class='btn btn-danger'>Reject</button></td>
             </form>
             </body>
             </html>
@@ -102,7 +102,6 @@
                 <html>
                 <head>
                     <title>Scout Online</title>
-                    <link rel="stylesheet" type="text/css"" href="style.css">
                 </head>
                 <body>
                 <div class="header">
@@ -124,8 +123,8 @@
                     <input type="hidden" name="salary" value="<?php echo $salary; ?>" />
                     <input type="hidden" name="offeree" value="<?php echo $offeree_id; ?>" />
                     <input type="hidden" name="offerer" value="<?php echo $offerer_id; ?>" />
-                    <td><button type='submit' name='accept-agent' class='btn'>Accept</button></td>
-                    <td><button type='submit' name='reject-agent' class='btn'>Reject</button></td>
+                    <td><button type='submit' name='accept-agent' class='btn btn-primary'>Accept</button></td>
+                    <td><button type='submit' name='reject-agent' class='btn btn-danger'>Reject</button></td>
                 </form>
                 </body>
                 </html>
@@ -166,7 +165,6 @@
         <html>
         <head>
             <title>Scout Online</title>
-            <link rel="stylesheet" type="text/css"" href="style.css">
         </head>
         <body>
         <div class="header">
@@ -186,7 +184,7 @@
             <input type="hidden" name="footballer" value="<?php echo $footballer_id; ?>" />
             <input type="hidden" name="offeree" value="<?php echo $offeree_id; ?>" />
             <input type="hidden" name="offerer" value="<?php echo $offerer_id; ?>" />
-            <td><button type='submit' name='edit' class='btn'>Edit</button></td>
+            <td><button type='submit' name='edit' class='btn btn-info'>Edit</button></td>
         </form>
         </body>
         </html> 

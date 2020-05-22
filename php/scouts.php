@@ -1,5 +1,6 @@
 <?php 
     include "config.php";
+    include "header.php";
     $errors = array();
     $id = $_SESSION['id'];
 
@@ -14,7 +15,6 @@
 <html>
 <head>
     <title>Scout Online</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="header">
@@ -23,7 +23,7 @@
 
 <form method="post" action="firing.php">
     <?php include('errors.php'); ?>
-    <table id="offers" class="offers-class" style="width:100%">
+    <table id="offers" class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -67,19 +67,19 @@
                         
                         if($availability == 0) {
                         echo 
-                            "<tr style='text-align:center'>
+                            "<tr>
                                 <td>$name</td>
                                 <td>$positions</td>
                                 <td>$leagues</td>
                                 <td>$no_of_reports</td>
                                 <td>Available</td>
                                 <input type='hidden' name='scout_id' value='$scout_id' />
-                                <td><button type='submit' name='fire' class='btn' onclick=\"return confirm('Are you sure?')\">Fire!</button></td>
+                                <td><button type='submit' name='fire' class='btn btn-primary' onclick=\"return confirm('Are you sure?')\">Fire!</button></td>
                             </tr>";
                         }
                         else {
                             echo 
-                            "<tr style='text-align:center'>
+                            "<tr>
                                 <td>$name</td>
                                 <td>$positions</td>
                                 <td>$leagues</td>
@@ -96,5 +96,9 @@
         ?>
     </table>
 </form>
+
+<button type='button' class="btn btn-info" onclick="window.location.href='home_agency.php'">
+    Home
+</button>
 </body>
 </html>
