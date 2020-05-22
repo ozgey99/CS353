@@ -144,7 +144,7 @@
                 ?>
             </table>
         </form>
-        <a href="home_club.php" class="home">Home</a>
+
         </body>
         </html>
 <?php } ?>
