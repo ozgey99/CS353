@@ -65,7 +65,7 @@ $result = mysqli_query($cn, $sql_select);
 if ($result->num_rows > 0) { ?>
     <div>
         <form name="form" action="respond_request.php" method="post">
-            <table>
+            <table class="table">
                 <tr><th>Club</th><th>Number of Scouts</th><th>Organization</th><th>Positions</th><th>Start Date</th><th>End Date</th><th>Respond</th></tr>
 
                 <?php

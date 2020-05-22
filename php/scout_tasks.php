@@ -23,7 +23,7 @@ $sql_select = "select request_positions.position as p, request.start_date as s, 
 $result = mysqli_query($cn, $sql_select);
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Position</th><th>Start Date</th><th>End Date</th></tr>";
+    echo "<table class=\"table\"><tr><th>Position</th><th>Start Date</th><th>End Date</th></tr>";
 
     while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["p"]."</td><td>

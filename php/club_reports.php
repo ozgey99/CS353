@@ -29,7 +29,7 @@ $result = mysqli_query($cn, $sql_select);
 
 if (mysqli_num_rows($result) > 0) {
     echo "<form name='form' action='view_report.php' method='post'>
-        <table><tr><th>Footballer</th><th>Scout</th><th>Rating</th><th>Comment</th><th>Date</th></tr>";
+        <table class=\"table\"><tr><th>Footballer</th><th>Scout</th><th>Rating</th><th>Comment</th><th>Date</th></tr>";
 
     while($row = $result->fetch_assoc()) {
         echo "<tr><td>".$row["footballer"]."</td><td>".$row["scout"]."</td><td>
