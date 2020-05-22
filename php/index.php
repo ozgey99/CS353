@@ -11,6 +11,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
 
+    <div class="header">
+        <img src="logo3.png" alt="logo" width="120" height="120"></img>
+    </div>
+
     <h1 style="color: whitesmoke; alignment: center; font-family: Verdana; font-size: xx-large">
         Scout Online
     </h1>
