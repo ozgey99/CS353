@@ -3,10 +3,17 @@ require 'header.php';
 include 'config.php';
 ?>
 <?php
-$cid = $_SESSION['id'];
+$id = $_SESSION['id'];
+$query = "SELECT id FROM club WHERE id='$id'";
+$result = mysqli_query($cn,$query);
+$check = mysqli_num_rows($result);
+if($check == 0) {
+    echo "You are not a club!";
+}
+else {
 $select_footballer = "SELECT footballer.name FROM footballer, plays
                         where footballer.id = plays.footballer_id
-                        and plays.club_id != $cid order by footballer.name;";
+                        and plays.club_id != $id order by footballer.name;";
 $result = mysqli_query($cn, $select_footballer);
 $footballers = array();
 $resultCheck = mysqli_num_rows($result);
@@ -43,3 +50,4 @@ while ($row = mysqli_fetch_assoc($result)) {
         </form>
     </div>
 </div>
+                <?php } ?>
