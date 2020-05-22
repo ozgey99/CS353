@@ -11,6 +11,7 @@
 
 <?php
 include 'config.php';
+include 'header.php';
 
 $uid = $_SESSION['id'];
 $sql_select = "select request_positions.position as p, request.start_date as s, request.end_date as e
@@ -34,6 +35,11 @@ if ($result->num_rows > 0) {
     echo "No tasks yet.";
 }
 ?>
+
+<br>
+<button type='button' class="btn btn-info" onclick="window.location.href='home_scout.php'">
+    Home
+</button>
 
 </body>
 </html>

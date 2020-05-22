@@ -1,3 +1,7 @@
+<?php
+include 'config.php';
+include 'header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +39,6 @@
 
 
 <?php
-include 'config.php';
-include 'header.php';
 
 $uid = $_SESSION['id'];
 $p = "pending";
