@@ -12,7 +12,7 @@
     </head>
 
     <h1 style="color: whitesmoke; alignment: center; font-family: Verdana; font-size: xx-large">
-        Footballer Scouting Application
+        Scout Online
     </h1>
 
     <body style="background-color: #1d2124; background-image: url('football.jpg'); background-size: cover; color: antiquewhite; alignment: center; font-family: Verdana; font-size: large">
