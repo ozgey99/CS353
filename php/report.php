@@ -62,6 +62,7 @@
 			<textarea name="comment" rows="8" cols="80" placeholder="Enter your comment here..."></textarea>
 			<button type="submit" name="report-submit">Submit</button>
 
-		</form> 
+		</form>
+	    <a href="home_scout.php" class="home">Home</a> 
     </div>
 </div>
