@@ -14,11 +14,6 @@
     	}
     ?>
       <br>
-    <form action="logout_inc.php">
-
-    	<button type="submit" name="logout-submit">Logout</button>
-
-    </form>
 
     <form action="report.php" method="post">
 
@@ -30,6 +25,12 @@
 
       <button type="submit" name="report">Add Player to Watchlist</button>
     
+    </form>
+
+    <form action="logout_inc.php">
+
+      <button type="submit" name="logout-submit">Logout</button>
+
     </form>
     
       <br> <br>
