@@ -23,11 +23,11 @@ if(isset($_POST["framework"])) {
 <h2>Request is accepted</h2>
 <h2>Scouts are assigned successfully</h2>
 <div align="center">
-    <button type="button" class="button" onclick="window.location.href='home_agency.php'">
+    <button type="button" class="btn btn-info" onclick="window.location.href='home_agency.php'">
         Home
     </button>
 
-    <button type="button" class="button" onclick="window.location.href='agency_requests.php'">
+    <button type="button" class="btn btn-warning" onclick="window.location.href='agency_requests.php'">
         See Other Requests
     </button>
 </div>

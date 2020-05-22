@@ -42,7 +42,7 @@
 
         mysqli_query($cn,$query);
         mysqli_query($cn,$query2);
-        header("Location: your_offers.php");
+        header("Location: agent_offerable.php");
     }
     else if(isset($_POST['cancel'])) {
         $offerer_id = $_POST['offerer'];
@@ -77,7 +77,7 @@
         mysqli_query($cn,$query);
         $query = "UPDATE club SET num_of_players='$offeree_players', value='$offeree_value' WHERE id='$offeree_id'";
         mysqli_query($cn,$query);
-        header("Location: agent_offerable.php");
+        header("Location: your_offers.php");
     }
     else if(isset($_POST['reject-agent'])) {
         $offerer_id = $_POST['offerer'];
@@ -86,7 +86,7 @@
         $footballer_id = $_POST['footballer'];
         $query = "UPDATE offers SET status='rejected' WHERE offeree_id = '$offeree_id' and offerer_id = '$offerer_id' and footballer_id ='$footballer_id' and (status = 'agent' or status='agent-pending' or 'agent-rejected')";
         mysqli_query($cn,$query);
-        header("Location: agent_offerable.php");
+        header("Location: your_offers.php");
     }
     else
         echo "You should not be here!";

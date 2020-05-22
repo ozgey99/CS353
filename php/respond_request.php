@@ -1,16 +1,11 @@
 <html lang="en">
 <head>
     <title>Assign Scout</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" />
 </head>
 <body>
 <?php
 require "config.php";
+require "header.php";
 
 $requestID = $_POST['select'];
 $_SESSION['selectedRequest'] = $requestID;
@@ -81,10 +76,10 @@ if( isset($_POST["accept"]) ){
 
                     <div class="form-group">
                         <br>
-                        <button type="button" class="button" onclick="window.location.href='agency_requests.php'">
+                        <button type="button" class="btn btn-info" onclick="window.location.href='agency_requests.php'">
                             See Other Requests
                         </button>
-                        <input name="submit" type="submit" class="btn btn-info" value="Continue">
+                        <input name="submit" type="submit" class="btn btn-warning" value="Continue">
                     </div>
                 </form>
             </div>
@@ -103,11 +98,11 @@ else{
     }
     ?>
     <div align="center">
-        <button type="button" class="button" onclick="window.location.href='home_agency.php'">
+        <button type="button" class="btn btn-info" onclick="window.location.href='home_agency.php'">
             Home
         </button>
 
-        <button type="button" class="button" onclick="window.location.href='agency_requests.php'">
+        <button type="button" class="btn btn-warning" onclick="window.location.href='agency_requests.php'">
             See Other Requests
         </button>
     </div>
