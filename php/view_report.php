@@ -1,5 +1,6 @@
 <?php
     include 'config.php';
+    include 'header.php';
 
     $uid = $_SESSION['id'];
     $reportID = $_POST['select'];
@@ -17,7 +18,8 @@
 
     $row = $result->fetch_assoc();
     ?>
-    <button type='button' class='button' onclick="window.location.href='club_reports.php'">
+<br>
+    <button type='button' class='btn-danger' onclick="window.location.href='club_reports.php'">
     Close
     </button> <br> <?php
     echo "<p><b>Footballer: </b>".$row['footballer']."</p>

@@ -1,11 +1,8 @@
 <html lang="en">
-<head> <title>Subscription Check</title>
-    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/bootstrap-3.min.css">
-</head>
 <body>
 <div>
     <?php
-
+    require 'header.php';
     require "config.php";
 
     $clubID = $_POST['club'];
@@ -39,11 +36,11 @@
 
 
     <div align="center">
-        <button type="button" class="button" onclick="window.location.href='home_journalist.php'">
+        <button type="button" class="btn btn-info" onclick="window.location.href='home_journalist.php'">
             Home
         </button>
 
-        <button type="button" class="button" onclick="window.location.href='subscribe.php'">
+        <button type="button" class="btn btn-warning" onclick="window.location.href='subscribe.php'">
             Back
         </button>
     </div>
