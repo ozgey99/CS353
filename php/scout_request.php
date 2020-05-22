@@ -92,6 +92,7 @@
 			
 
 			<button type="submit" name="request-submit">Submit</button>
-		</form> 
+		</form>
+	    <a href="home_club.php" class="home">Home</a>
     </div>
 </div>
