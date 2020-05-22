@@ -1,4 +1,4 @@
-# Spring 2020 CS353 Project - Footballer scouting application
+# Spring 2020 CS353 Project - Online Scout
 
 ## Group members
 - Özge Yaşayan
