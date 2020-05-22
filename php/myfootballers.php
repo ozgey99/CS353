@@ -79,6 +79,9 @@
         ?>
     </table>
 </form>
-<a href="home_agent.php" class="home">Home</a>
+<br>
+<button type='button' class="btn btn-info" onclick="window.location.href='home_agent.php'">
+    Home
+</button>
 </body>
 </html>

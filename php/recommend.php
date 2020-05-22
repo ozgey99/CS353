@@ -33,11 +33,6 @@ while ($row = mysqli_fetch_assoc($result2)) {
 
     <div class="recommendation">
 
-        <?php
-        if (!empty($_SESSION['id'])) {
-            echo "<p class=error>Session Active</p>";
-        }
-        ?>
         <form action = "recommend_inc.php" method = "post">
             <label for="footballer">Select footballer from your managing list: </label>
             <select name="footballer">
@@ -65,8 +60,11 @@ while ($row = mysqli_fetch_assoc($result2)) {
 
             <br>
 
-            <button type="submit" name="recommendation-submit">Submit</button>
+            <button type="submit" class="btn btn-primary" name="recommendation-submit">Submit</button>
         </form>
-        <a href="home_agent.php" class="home">Home</a>
+        <br>
+        <button type='button' class="btn btn-info" onclick="window.location.href='home_agent.php'">
+            Home
+        </button>
     </div>
 </div>

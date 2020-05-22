@@ -36,6 +36,7 @@
 
 <?php
 include 'config.php';
+include 'header.php';
 
 $uid = $_SESSION['id'];
 $p = "pending";
@@ -81,11 +82,14 @@ if ($result->num_rows > 0) { ?>
                 ?>
             </table>
 
-            <button type="submit" class="button" name="reject" id="reject">Reject</button>
-
-            <button type="submit" class="button" name="accept" id="accept">Accept</button>
+            <br> <br>
+            <button type="submit" class="btn btn-primary" name="accept" id="accept">Accept</button>
+            <button type="submit" class="btn btn-danger" name="reject" id="reject">Reject</button>
 
         </form>
+
+        <br>
+
     </div>
 
     <?php

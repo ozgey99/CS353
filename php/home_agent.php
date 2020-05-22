@@ -17,7 +17,7 @@
 
       <br>
       <form method="post">
-          <button type = "submit" name = "recommend">Make a recommendation to a club</button>
+          <button type = "submit" class="btn btn-info" name = "recommend">Make a recommendation to a club</button>
           <?php
           if(isset($_POST['recommend'])){
               header("Location: recommend.php");
@@ -27,7 +27,7 @@
       </form>
       <br>
       <form method="post">
-          <button type = "submit" name = "myfootballers">See your footballers</button>
+          <button type = "submit" class="btn btn-info" name = "myfootballers">See your footballers</button>
           <?php
           if(isset($_POST['myfootballers'])){
               header("Location: myfootballers.php");
@@ -37,7 +37,7 @@
       </form>
       <br>
       <form method="post">
-          <button type = "submit" name = "offers">See your offers</button>
+          <button type = "submit" class="btn btn-info" name = "offers">See your offers</button>
           <?php
           if(isset($_POST['offers'])){
               header("Location: offers.php");
@@ -48,7 +48,7 @@
       <br>
     <form action="logout_inc.php">
 
-    	<button type="submit" name="logout-submit">Logout</button>
+    	<button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
 
     </form>
 
