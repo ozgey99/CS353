@@ -36,6 +36,16 @@
           ?>
       </form>
       <br>
+      <form method="post">
+          <button type = "submit" name = "offers">See your offers</button>
+          <?php
+          if(isset($_POST['offers'])){
+              header("Location: offers.php");
+              exit();
+          }
+          ?>
+      </form>
+      <br>
     <form action="logout_inc.php">
 
     	<button type="submit" name="logout-submit">Logout</button>
