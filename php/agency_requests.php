@@ -45,7 +45,7 @@ $result3 = mysqli_query($cn, "select count(*) as c from scout, works
                                     and works.agency_id= $uid");
 $existingNoOfScouts = $result3->fetch_assoc();
 
-echo "existing no of available scouts: ".$existingNoOfScouts['c'];
+echo "Existing number of available scouts: ".$existingNoOfScouts['c'];
 
 
 

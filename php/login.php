@@ -32,7 +32,7 @@
 
         <input type="password" name="pwd" value="" placeholder="Password">
 
-        <button type="submit" name="login-submit">Login</button>
+        <button type="submit" class="btn btn-primary" name="login-submit">Login</button>
 
       </form>
 

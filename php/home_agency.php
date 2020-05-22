@@ -1,6 +1,6 @@
 <?php 
       require 'header.php';
-?>  
+?>
 
 <div class="container">
 
@@ -19,18 +19,22 @@
     ?>
       <br>
       <form action="scouts.php">
-        <button type="submit" name="logout-submit">See Your Scouts</button>
+        <button type="submit" class="btn btn-info" name="logout-submit">See Your Scouts</button>
       </form>
 
-    <form action="logout_inc.php">
+      <br>
 
-    	<button type="submit" name="logout-submit">Logout</button>
+      <form action="agency_requests.php">
+          <button type="submit" class="btn btn-info" name="request-submit">See Your Requests</button>
+      </form>
 
-    </form>
-      <br> <br>
-      <div>
-          <a href="agency_requests.php" style="color: #0c5460">Want to see your requests?</a>
-      </div>
+      <br>
+
+      <form action="logout_inc.php">
+
+          <button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
+
+      </form>
 
   </div>
 

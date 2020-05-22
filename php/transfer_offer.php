@@ -25,13 +25,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     <div class="offer">
 
-        <?php
-        if (!empty($_SESSION['id'])) {
-            echo "<p class=error>Session Active</p>";
-        }
-        ?>
         <form action = "transfer_offer_inc.php" method = "post">
-            <label for="footballer">Select Footballer:</label>
+            <label for="footballer">Select footballer:</label>
             <select name="footballer">
                 <?php
                 foreach ($footballers as $footballer) {
@@ -40,13 +35,22 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <?php } ?>
             </select>
 
-            <br>
+            <br> <br>
 
+            <label for="offer-lbl">Enter your offer: </label>
             <input type="text" name="offer" value="" placeholder="0 €">
 
             <br>
+            <br>
 
-            <button type="submit" name="offer-submit">Submit</button>
+            <button type="submit" class="btn btn-primary" name="offer-submit">Submit</button>
+        </form>
+
+        <br> <br>
+        <form action="home_club.php">
+
+            <button type="submit" class="btn btn-info" name="home-scout">Home</button>
+
         </form>
     </div>
 </div>

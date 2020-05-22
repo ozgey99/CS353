@@ -11,6 +11,7 @@
 
 <?php
 include 'config.php';
+include 'header.php';
 
 $uid = $_SESSION['id'];
 $sql_select = "select report.id as reportID, report.date as date, report.rating as rating, report.comment as comment, 
@@ -37,13 +38,14 @@ if (mysqli_num_rows($result) > 0) {
 
     }
 
-    echo "</table> <br><button type='submit' class='button' name='view' id='view'>View</button> 
+    echo "</table> <br><button type='submit' class=\"btn btn-primary\" name='view' id='view'>View</button> 
   </form>";
 ?>
-    <br> <button type='button' class='button' onclick="window.location.href='transfer_offer.php'">
+    <br> <br> <button type='button' class="btn btn-info" onclick="window.location.href='transfer_offer.php'">
     Transfer Offer Page
     </button>
-    <br> <button type='button' class='button' onclick="window.location.href='home_club.php'">
+    <br> <br>
+    <button type='button' class="btn btn-info" onclick="window.location.href='home_club.php'">
         Home
     </button>
     <?php

@@ -18,15 +18,11 @@
       }
 
     ?>
+
       <br>
-    <form action="logout_inc.php">
-
-    	<button type="submit" name="logout-submit">Logout</button>
-
-    </form>
 
     <form method="post">
-      <button type = "submit" name = "request">Request Scout</button>
+      <button type = "submit" class="btn btn-info" name = "request">Request Scout</button>
       <?php 
         if(isset($_POST['request'])){
           header("Location: scout_request.php");
@@ -37,7 +33,7 @@
 
       <br>
       <form method="post">
-          <button type = "submit" name = "offer">Make a transfer offer</button>
+          <button type = "submit" class="btn btn-info" name = "offer">Make a transfer offer</button>
           <?php
           if(isset($_POST['offer'])){
               header("Location: transfer_offer.php");
@@ -47,7 +43,7 @@
       </form>
       <br>
       <form method="post">
-      <button type = "submit" name = "offerable">Offer to Agent</button>
+      <button type = "submit" class="btn btn-info" name = "offerable">Offer to Agent</button>
       <?php 
         if(isset($_POST['offerable'])){
           header("Location: agent_offerable.php");
@@ -59,7 +55,7 @@
       
       <br>
       <form method="post">
-      <button type = "submit" name = "your-offers">Your Offers</button>
+      <button type = "submit"  class="btn btn-info" name = "your-offers">Your Offers</button>
       <?php 
         if(isset($_POST['your-offers'])){
           header("Location: your_offers.php");
@@ -71,7 +67,7 @@
 
       <br>
     <form method="post">
-      <button type = "submit" name = "offers">Show Offers to You</button>
+      <button type = "submit" class="btn btn-info" name = "offers">Show Offers to You</button>
       <?php 
         if(isset($_POST['offers'])){
           header("Location: offers.php");
@@ -79,11 +75,17 @@
         }
       ?>
     </form>
-    <br><br>
-      <div>
-          <a href="club_reports.php" style="color: #0c5460">Want to see the reports?</a>
-      </div>
+    <br>
+
+      <form action="club_reports.php">
+          <button type="submit" class="btn btn-info" name="reports-club-submit">See Your Reports</button>
+      </form>
 
       <br>
+      <form action="logout_inc.php">
+
+          <button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
+
+      </form>
 
   </div>

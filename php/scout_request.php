@@ -16,11 +16,6 @@
 
     <div class="request">
 
-       <?php 
-       		if (!empty($_SESSION['id'])) {
-       			echo "<p class=error>Session Active</p>";
-       		}
-       ?>
        <form action = "scout_request_inc.php" method = "post">
 			<label for="agency">Select an agency:</label>
 			<select name="agency">
@@ -90,9 +85,16 @@
 
 			<input type="checkbox" name="pos[]" value="st">Striker(ST)<br>
 			
-
-			<button type="submit" name="request-submit">Submit</button>
+            <br>
+			<button type="submit" class="btn btn-primary" name="request-submit">Submit</button>
 		</form>
-	    <a href="home_club.php" class="home">Home</a>
+
+        <br> <br>
+        <form action="home_club.php">
+
+            <button type="submit" class="btn btn-info" name="home-scout">Home</button>
+
+        </form>
+
     </div>
 </div>
