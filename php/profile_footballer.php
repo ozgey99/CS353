@@ -3,7 +3,7 @@ include "header.php";
 include "config.php";
 
 $id = $_GET['id'];
-$imgsrc = "/img/type=footballer&id=".$id.".png";
+$imgsrc = "img/type=footballer&id=".$id.".png";
 
 $result = mysqli_query($cn, "select name, age, value, nationality from footballer where id=".$id);
 $footballer_info = $result->fetch_assoc();
