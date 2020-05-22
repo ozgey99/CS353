@@ -2,7 +2,7 @@
     include "header.php";
     include "config.php";
 
-    $id = $_GET['id'];
+    $id = $_SESSION['id'];
     $imgsrc = "img/type=club&id=".$id.".png";
 
     $result = mysqli_query($cn, "select * from club where id=".$id);
@@ -10,7 +10,8 @@
 
     $result2 = mysqli_query($cn, "select footballer.name as footballer, footballer.id as footballerID 
                                         from plays,footballer where plays.footballer_id=footballer.id 
-                                        and plays.club_id=".$id);
+                                        and plays.club_id='$id'
+                                        order by footballer.name");
     //$footballers_info = $result2->fetch_assoc();
 ?>
 
@@ -52,6 +53,12 @@
         </div>
     </div>
 </div>
+
+<br> <br>
+<button type='button' class="btn btn-info" onclick="window.location.href='home_club.php'">
+    Home
+</button>
+
 </body>
 
 </html>
