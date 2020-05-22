@@ -58,7 +58,7 @@
                       $date = $organization_date_fetch['start_date'];
                       
                       echo 
-                          "<tr style='text-align:center'>
+                          "<tr>
                               <td>$index</td>
                               <td>$club_name</td>
                               <td>$positions</td>
