@@ -1,3 +1,6 @@
+<?php
+include "header.php";
+?>
 <html lang="en">
 <head>
     <title>Subscribe</title>
@@ -21,18 +24,6 @@
         }
 
     </style>
-
-
-    <div align="right">
-        <button type="button" class="button" onclick="window.location.href='home_journalist.php'">
-            Home
-        </button>
-
-        <button type="button" class="button" onclick="window.location.href='profile_journalist.php'">
-            Profile
-        </button>
-    </div>
-
 
     <br>
 
@@ -73,8 +64,9 @@
                 </div>
 
                 <div class="form-group" align = "center">
+                    <br>
 
-                    <button name="submitt" type="submit" class="button" >Subscribe!</button>
+                    <button name="submitt" type="submit" class="btn btn-lg btn-primary" >Subscribe!</button>
 
                 </div>
 
@@ -100,6 +92,9 @@
 
     }
 </script>
-
+<br>
+<button type="button" class="btn btn-info" onclick="window.location.href='home_journalist.php'">
+    Home
+</button>
 </body>
 </html>
