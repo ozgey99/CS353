@@ -15,21 +15,25 @@
     ?>
     <form onclick="window.location.href='subscribe.php'">
 
-      <button type="button" name="subscribe">Subscribe</button>
+      <button type="button" class="btn btn-info" name="subscribe">Subscribe</button>
 
     </form>
+
+      <br>
 
     <form onclick="window.location.href='notifications.php'">
 
-      <button type="button" name = "notifications">See Notifications</button>
+      <button type="button" class="btn btn-info" name = "notifications">See Notifications</button>
       
     </form>
 
-    <form action="logout_inc.php">
+      <br>
 
-    	<button type="submit" name="logout-submit">Logout</button>
+      <form action="logout_inc.php">
 
-    </form>
+          <button type="submit" class="btn btn-danger" name="logout-submit">Logout</button>
+
+      </form>
 
       
     	

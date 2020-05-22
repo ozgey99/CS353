@@ -27,7 +27,7 @@
               $notifies_result = mysqli_query($cn,$select_notifies);
               $result_check = mysqli_num_rows($notifies_result);
 
-              $assoc_arr;
+              $assoc_arr = array();
 
               $index = 1;
               if( $result_check > 0) {
@@ -71,9 +71,10 @@
               }
         ?>
       </table>
-
-     <a href="home_journalist.php" class="home">Home</a>
-
+ <br>
+        <button type='button' class="btn btn-info" onclick="window.location.href='home_journalist.php'">
+            Home
+        </button>
     </form> 
 
 
