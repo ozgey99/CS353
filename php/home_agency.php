@@ -18,6 +18,10 @@
       }
     ?>
       <br>
+      <form action="scouts.php">
+        <button type="submit" name="logout-submit">See Your Scouts</button>
+      </form>
+
     <form action="logout_inc.php">
 
     	<button type="submit" name="logout-submit">Logout</button>

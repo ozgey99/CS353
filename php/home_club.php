@@ -45,6 +45,29 @@
           }
           ?>
       </form>
+      <br>
+      <form method="post">
+      <button type = "submit" name = "offerable">Offer to Agent</button>
+      <?php 
+        if(isset($_POST['offerable'])){
+          header("Location: agent_offerable.php");
+          exit();
+        }
+      ?>
+    </form>
+
+      
+      <br>
+      <form method="post">
+      <button type = "submit" name = "your-offers">Your Offers</button>
+      <?php 
+        if(isset($_POST['your-offers'])){
+          header("Location: your_offers.php");
+          exit();
+        }
+      ?>
+    </form>
+
 
       <br>
     <form method="post">

@@ -1,8 +1,6 @@
 <?php
 include 'config.php';
 
-session_start();
-
 if (isset($_POST['offer-submit']) && !empty($_SESSION['id'])) {
     $offerer_id = $_SESSION['id'];
     $sql_select = "SELECT * FROM club WHERE id = '$offerer_id';";

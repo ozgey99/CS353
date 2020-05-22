@@ -16,7 +16,7 @@
        		$footballer_id_row = array();
        		$footballer_id_list = array();
        		$footballer_name_list = array();
-       		$scout_id = $_SESSION['userId'];
+       		$scout_id = $_SESSION['id'];
 
        		$select_footballer_id = "SELECT footballer_id FROM watches WHERE scout_id = '$scout_id';";
        		$footballer_id_result = mysqli_query($conn, $select_footballer_id);
